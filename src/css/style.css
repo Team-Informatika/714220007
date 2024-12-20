@@ -1,0 +1,96 @@
+@import "https://cdn.skypack.dev/ol/ol.css";
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #e6e6e6; /* Latar belakang jika tile tidak dimuat */
+}
+
+/* Styling untuk Popup */
+.ol-popup {
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  padding: 10px; /* Padding proporsional */
+  border-radius: 6px; /* Membuat sudut melengkung */
+  border: 1px solid #cccccc;
+  bottom: 12px;
+  left: -50px;
+  min-width: 120px; /* Lebar minimum */
+  max-width: 200px; /* Lebar maksimum */
+  font-size: 12px; /* Ukuran font kecil */
+  line-height: 1.4; /* Spasi baris */
+  word-wrap: break-word; /* Memastikan teks panjang dibungkus */
+  transition: all 0.3s ease-in-out; /* Animasi lembut */
+}
+
+.ol-popup:after,
+.ol-popup:before {
+  top: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.ol-popup:after {
+  border-top-color: white; /* Warna segitiga putih */
+  border-width: 8px; /* Ukuran segitiga */
+  left: 50%;
+  margin-left: -8px;
+}
+
+.ol-popup:before {
+  border-top-color: #cccccc; /* Warna segitiga abu-abu */
+  border-width: 9px; /* Ukuran segitiga */
+  left: 50%;
+  margin-left: -9px;
+}
+
+/* Tombol untuk menutup Popup */
+.ol-popup-closer {
+  text-decoration: none;
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  font-size: 14px; /* Ukuran font tombol */
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.ol-popup-closer:hover {
+  color: red; 
+}
+
+/* Tooltip untuk isi popup */
+.ol-popup-content {
+  font-size: 12px;
+  font-family: "Courier New", Courier, monospace; /* Font untuk teks koordinat */
+  color: #333333;
+  text-align: left;
+}
+
+/* Responsif untuk layar kecil */
+@media screen and (max-width: 600px) {
+  .ol-popup {
+    min-width: 100px;
+    max-width: 150px;
+    padding: 8px;
+  }
+
+  .ol-popup-closer {
+    font-size: 12px;
+  }
+}
